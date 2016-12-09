@@ -923,6 +923,9 @@ long wxExecute(const wxString& cmd, int flags, wxProcess *handler,
         // handler may be !NULL for capturing program output, but we don't use
         // it wxExecuteData struct in this case
         data->handler = NULL;
+        
+        if (handler)
+            handler->SetPid(pi.dwProcessId);
     }
     else
     {
